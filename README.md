@@ -1,9 +1,9 @@
-## HOW TO USE THIS SCRIPT
+# HOW TO USE THIS SCRIPT
 
-**You can call it directly with a query like this:**
+### You can call it directly with a query like this
 
 ```bash
-/bin/bash <(/bin/curl -s https://raw.githubusercontent.com/getbible/getverse/master/src/chapter.sh) "John 3:16-18"
+bash <(curl -s https://raw.githubusercontent.com/getbible/getverse/master/src/chapter.sh) "John 3:16-18"
 ```
 Will return:
 ```text
@@ -13,10 +13,10 @@ Will return:
 ```
 > each verse per line, with the line number as the first value in the line.
 
-**Other translations, use as a second argument the abbreviation of the translation.**
+### Other translations, use as a second argument the abbreviation of the translation.
 
 ```bash
-/bin/bash <(/bin/curl -s https://raw.githubusercontent.com/getbible/getverse/master/src/chapter.sh) "John 3:16-18" textusreceptus
+bash <(curl -s https://raw.githubusercontent.com/getbible/getverse/master/src/chapter.sh) "John 3:16-18" textusreceptus
 ```
 Will return:
 ```
@@ -27,7 +27,7 @@ Will return:
 > each verse per line, with the line number as the first value in the line.
 
 ```bash
-/bin/bash <(/bin/curl -s https://raw.githubusercontent.com/getbible/getverse/master/src/chapter.sh) "John 3:16-18" korean
+bash <(curl -s https://raw.githubusercontent.com/getbible/getverse/master/src/chapter.sh) "John 3:16-18" korean
 ```
 Will return:
 ```
@@ -49,7 +49,23 @@ https://getbible.net/v2/aov/books.json
 
 Here is a list of [translations](https://github.com/getbible/v2/blob/master/translations.json) available.
 
-#### Todo
+### You are able to also make queries with the book number like this
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/getbible/getverse/master/src/chapter.sh) "43 3:16-18"
+```
+
+### You are able to also make queries with the book number to get its name like this
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/getbible/getverse/master/src/name.sh) "43 3:16-18"
+```
+Will return:
+```
+John 3:16-18
+```
+
+### Todo
 
 - validate queries
 - Increase the various ways to query verses
