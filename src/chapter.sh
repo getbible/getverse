@@ -14,7 +14,8 @@ QUERY="${1:-62 3:16-18}"
 # set the translation (default: kjv)
 VERSION="${2:-kjv}"
 # get the name from the query TODO: find better filter
-BOOKNAME=$(echo ${QUERY%%[0-9]?:*} | xargs echo -n)
+BOOKNAME=$(echo ${QUERY%%[0-9][0-9]?:*} | xargs echo -n)
+BOOKNAME=$(echo ${BOOKNAME%%[0-9]?:*} | xargs echo -n)
 BOOKNAME=$(echo ${BOOKNAME%%[0-9]:*} | xargs echo -n)
 # check if the name was given by number
 re='^[0-9]+$'
