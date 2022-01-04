@@ -13,7 +13,7 @@ command -v curl >/dev/null 2>&1 || {
 # set the query (default: 1 John 3:16-18)
 SCRIPTURE="${1:-62 3:16-18}"
 # set the translation (default: kjv)
-: "${VERSION:=kjv}"
+VERSION="${2:-kjv}"
 
 # check if we have options
 while :; do
