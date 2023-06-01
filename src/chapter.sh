@@ -67,7 +67,7 @@ if [[ "$BOOK_NAME" =~ $re ]]; then
   BOOK_NR="${BOOK_NAME}"
 else
   # get the list of books from the API to get the book number
-  BOOKS=$(curl -s "https://getbible.net/v2/${VERSION}/books.json")
+  BOOKS=$(curl -s "https://api.getbible.net/v2/${VERSION}/books.json")
   BOOK_NR=$(echo "$BOOKS" | jq -r ".[] | select(.name == \"${BOOK_NAME}\") | .nr")
 fi
 # get chapter and verses numbers
@@ -77,7 +77,7 @@ CHAPTER_NR=$(echo "${NUMBERS%:*}" | xargs echo -n)
 # get verses numbers
 VERSES_NR=$(echo "${NUMBERS#*:}" | xargs echo -n)
 # get chapter text from getBible API
-CHAPTER=$(curl -s "https://getbible.net/v2/${VERSION}/${BOOK_NR}/${CHAPTER_NR}.json")
+CHAPTER=$(curl -s "https://api.getbible.net/v2/${VERSION}/${BOOK_NR}/${CHAPTER_NR}.json")
 # read verses into array by comma separator
 IFS=',' read -ra VERSES_NR_ARRAY <<<"${VERSES_NR}"
 # start the scripture array

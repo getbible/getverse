@@ -64,7 +64,7 @@ BOOK_NAME=$(echo "${BOOK_NAME%%[0-9]:*}" | xargs echo -n)
 re='^[0-9]+$'
 if [[ "$BOOK_NAME" =~ $re ]]; then
   # get the list of books from the API to get the book number
-  BOOKS=$(curl -s "https://getbible.net/v2/${VERSION}/books.json")
+  BOOKS=$(curl -s "https://api.getbible.net/v2/${VERSION}/books.json")
   BOOK_FULL_NAME=$(echo "$BOOKS" | jq -r ".[] | select(.nr == ${BOOK_NAME}) | .name")
   # get chapter and verses numbers
   NUMBERS=$(echo "${SCRIPTURE/$BOOK_NAME/}" | xargs echo -n)
